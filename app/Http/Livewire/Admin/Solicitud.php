@@ -16,28 +16,32 @@ class Solicitud extends Component
     public $estado;
     protected $paginationTheme = 'bootstrap';
     public $cargado = false;
-    public $search;
+    public $search = '';
 
     public function render()
     {
         $requests = Request::join('usuarios', 'id_usuario', '=', 'usuarios.id')
+        ->where('nombre', 'LIKE', '%' . $this->search . '%')
+        ->orwhere('fecha', 'LIKE', '%' . $this->search . '%')
             ->select(
-                'usuarios.*',
-            )->latest()->paginate(5);
+                'requests.*',
+                'usuarios.nombre',
+                'usuarios.apellido'
+            )->latest()->paginate(10);
         return view('livewire.admin.solicitud', compact('requests'));
     }
 
-    // public function aceptar(Request $request)
-    // {
-    //     $request['estado'] = 1;
-    //     $this->request->save();
-    // }
+    public function aceptar()
+    {
+        $this->request->estado = 1;
+        $this->request->save();
+    }
 
-    // public function denegar(Request $request)
-    // {
-    //     $request['estado'] = 0;
-    //     $this->request->save();
-    // }
+    public function denegar()
+    {
+        $this->request->estado = 0;
+        $this->request->save();
+    }
 
     public function cargando()
     {
@@ -49,8 +53,4 @@ class Solicitud extends Component
         $this->resetPage();
     }
 
-    protected function rules()
-    {
-        return RulesRequest::reglas();
-    }
 }

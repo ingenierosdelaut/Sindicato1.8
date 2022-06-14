@@ -61,40 +61,38 @@
 
 
             <div class="row">
-                <div class="col">
+                <div class="col text-center">
                     @if (count($usuarios) > 0)
-                        <table class="table text-center table-striped">
-                            <thead class="table-dark">
+                        <table class="table table-striped">
+                            <thead class="table-dark ">
                                 <tr>
-                                    <th scope="col"><b>NOMBRE</b></th>
-                                    <th scope="col"><b>APELLIDO</b></th>
-                                    <th scope="col"><b>DEPARTAMENTO</b></th>
-                                    <th scope="col"><b>PUESTO</b></th>
-                                    <th scope="col"><b>ESTADO</b></th>
-                                    <th scope="col"><b>ACCIONES</b></th>
+                                    <td scope="col"><b>NOMBRE</b></td>
+                                    <td scope="col"><b>DEPARTAMENTO</b></td>
+                                    <td scope="col"><b>PUESTO</b></td>
+                                    <td scope="col"><b>ESTADO</b></td>
+                                    <td scope="col"><b>ACCIONES</b></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($usuarios as $usuario)
                                     <tr>
-                                        <th scope="row">{{ $usuario->nombre }}</th>
-                                        <th>{{ $usuario->apellido }}</th>
-                                        <th>{{ $usuario->puesto }}</th>
-                                        <th>{{ $usuario->departamento }}</th>
+                                        <td scope="row">{{ $usuario->nombre }} {{ $usuario->apellido }}</td>
+                                        <td>{{ $usuario->puesto }}</td>
+                                        <td>{{ $usuario->departamento }}</td>
                                         @if ($usuario->estado == 1)
-                                            <th><span class="badge badge-pill badge-success">Activo</span></th>
+                                            <td><span class="badge badge-pill badge-success">Activo</span></td>
                                         @elseif ($usuario->estado == 0)
-                                            <th><span class="badge badge-pill badge-danger">Inactivo</span></th>
+                                            <td><span class="badge badge-pill badge-danger">Inactivo</span></td>
                                         @endif
 
-                                        <th>
+                                        <td>
                                             <a type="button" href="{{ route('admin.show-user', $usuario) }}"
                                                 title="Informacion del usuario(Vista previa)"
                                                 class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                                             <a type="button" href="{{ route('admin.user-edit', $usuario) }}"
                                                 title="Editar informacion del usuario" class="btn btn-primary btn-sm"><i
                                                     class="fa fa-edit"></i></a>
-                                        </th>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

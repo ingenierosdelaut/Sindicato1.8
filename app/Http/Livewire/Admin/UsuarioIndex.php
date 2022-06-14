@@ -5,11 +5,13 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\App;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class UsuarioIndex extends Component
 {
+    use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $search;
+    public $search = '';
     public $cargado = false;
     public $estado;
 
@@ -22,6 +24,7 @@ class UsuarioIndex extends Component
     {
         $usuarios = ($this->cargado == true) ? Usuario::where('nombre', 'LIKE', '%' . $this->search . '%')
             ->orwhere('departamento', 'LIKE', '%' . $this->search . '%')
+            ->orwhere('apellido', 'LIKE', '%' . $this->search . '%')
             ->paginate(10) : [];
         return view('livewire.admin.usuario-index', compact('usuarios'));
     }

@@ -88,7 +88,8 @@
                                                 <a href="{{ route('admin.anuncio-delete', $anuncio) }}"><small
                                                         class="text-muted">Desactivar</a></small>
                                                 <small class="float-right text-muted muted"><b>Creado el dia
-                                                        {{ $anuncio->created_at }}</b></a></small>
+                                                        {{ $anuncio->created_at }} por
+                                                        {{ $anuncio->nombre }}</b></a></small>
                                             </footer>
                                         </div>
                                     </div> <br>

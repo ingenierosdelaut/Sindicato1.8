@@ -62,26 +62,25 @@
                 </div>
 
                 <div class="row">
-                    <div class="col">
+                    <div class="col text-center">
                         @if (count((array) $anuncios))
                             <table class="table table-striped">
-                                <thead class="table-dark" style="text-aling-center">
+                                <thead class="table-dark">
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">TITULO</th>
-                                        <th scope="col">ESPECIFICACIONES</th>
-                                        <th scope="col">PUBLICADO POR</th>
-                                        <th scope="col">ACCIONES</th>
+                                        <td scope="col">TITULO</td>
+                                        <td scope="col">ESPECIFICACIONES</td>
+                                        <td scope="col">PUBLICADO POR</td>
+                                        <td scope="col">DIA QUE SE PUBLICO</td>
+                                        <td scope="col">ACCIONES</td>
                                     </tr>
                                 </thead>
                                 @foreach ($anuncios as $anuncio)
                                     <tbody>
-
                                         <tr>
-                                            <th scope="row">{{ $anuncio->id }}</th>
                                             <td>{{ $anuncio->titulo }}</td>
                                             <td>{{ $anuncio->contenido }}</td>
                                             <td>{{ $anuncio->nombre }}</td>
+                                            <td>{{ $anuncio->created_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.anuncio-delete', $anuncio) }}" type="button"
                                                     title="Eliminar anuncio" class="btn-sm btn-danger"><i
@@ -96,13 +95,6 @@
                                 @endforeach
                             </table>
                         @else
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-                            </div>
-                        @endif
-
-                        {{-- @if (count($anuncios) == 0)
                             <table class="table table-striped">
                                 <thead class="table-dark" style="text-aling-center">
                                     <tr>
@@ -120,8 +112,7 @@
                                     <th>No hay resultados</th>
                                     <th>No hay resultados</th>
                                 </tbody>
-                            </table>
-                        @endif --}}
+                        @endif
                         {{ $cargado == true ? $anuncios->links() : null }}
                     </div>
                 </div>

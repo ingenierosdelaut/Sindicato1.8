@@ -48,20 +48,20 @@ Route::get('/valores', Valores::class)->name('conocenos.valores');
 Route::get('/login', Login::class)->name('login');
 
 //Admin
-Route::get('/admin', AdminView::class)->name('admin.view');
-Route::get('/admin/usuarios', UsuarioIndex::class)->name('admin.usuarios');
-Route::get('/admin/usuarios/crear-usuario', UsuarioCreate::class)->name('admin.create-user');
-Route::get('/admin/usuarios/{usuario}/editar-usuario', UsuariosEdit::class)->name('admin.user-edit');
-Route::get('/admin/usuarios/{usuario}/usuario', UsuarioShow::class)->name('admin.show-user');
-Route::get('/admin/usuarios/generar-pdf', [UsuarioIndex::class, 'generarPDF'])->name('admin.users.pdf');
+Route::get('/admin', AdminView::class)->name('admin.view')->middleware('auth.admin');
+Route::get('/admin/usuarios', UsuarioIndex::class)->name('admin.usuarios')->middleware('auth.admin');
+Route::get('/admin/usuarios/crear-usuario', UsuarioCreate::class)->name('admin.create-user')->middleware('auth.admin');
+Route::get('/admin/usuarios/{usuario}/editar-usuario', UsuariosEdit::class)->name('admin.user-edit')->middleware('auth.admin');
+Route::get('/admin/usuarios/{usuario}/usuario', UsuarioShow::class)->name('admin.show-user')->middleware('auth.admin');
+Route::get('/admin/usuarios/generar-pdf', [UsuarioIndex::class, 'generarPDF'])->name('admin.users.pdf')->middleware('auth.admin');
 
 
 //Admin anuncios
 Route::get('/admin/anuncios', AnuncioIndex::class)->name('admin.anuncios');
-Route::get('/admin/anuncios/crear-anuncio', AnuncioCreate::class)->name('admin.anuncio-create');
-Route::get('/admin/anuncios/{anuncio}/editar-anuncio', AnuncioEdit::class)->name('admin.anuncio-edit');
-Route::get('/admin/anuncio/{anuncio}/eliminar', AnuncioDelete::class)->name('admin.anuncio-delete');
-Route::get('/admin/anuncios/generar-pdf', [AnuncioIndex::class, 'generarPDF'])->name('admin.anuncio.pdf');
+Route::get('/admin/anuncios/crear-anuncio', AnuncioCreate::class)->name('admin.anuncio-create')->middleware('auth.admin');
+Route::get('/admin/anuncios/{anuncio}/editar-anuncio', AnuncioEdit::class)->name('admin.anuncio-edit')->middleware('auth.admin');
+Route::get('/admin/anuncio/{anuncio}/eliminar', AnuncioDelete::class)->name('admin.anuncio-delete')->middleware('auth.admin');
+Route::get('/admin/anuncios/generar-pdf', [AnuncioIndex::class, 'generarPDF'])->name('admin.anuncio.pdf')->middleware('auth.admin');
 
 
 //Admin Solicitudes

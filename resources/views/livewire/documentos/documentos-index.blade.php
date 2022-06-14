@@ -13,7 +13,7 @@
                 <a class="nav-item nav-link" href="{{ route('anuncios.index') }}">Anuncios</a>
                 <a class="nav-item nav-link" href="{{ route('requests.create') }}">Solicitud</a>
                 <a class="nav-item nav-link" href="{{ route('documentos.index') }}">Documentos</a>
-                <div style="margin-left: 750px;">
+                <div style="margin-left: 975px;">
                     @livewire('iniciar-sesion.logout')
                 </div>
             </div>

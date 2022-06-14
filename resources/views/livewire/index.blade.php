@@ -23,7 +23,8 @@
             </header>
 
             <section id="banner">
-                <h2>SUTUTSLRC</h2>
+                <img src="{{asset('static/images/sututslrc.png')}}"  alt="">
+
                 <p>Sindicato Único de Trabajadores de la Universidad Tecnológica de San Luis Río Colorado.</p>
                 <ul class="actions special">
                     <!-- <li><a href="#" class="button primary">Sign Up</a></li>

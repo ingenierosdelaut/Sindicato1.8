@@ -17,9 +17,12 @@ class AnunciosIndex extends Component
 
     public function render()
     {
-        $anuncios = Anuncio::idDescending()->get();
 
+        $anuncios = Anuncio::join('usuarios', 'id_usuario', '=', 'usuarios.id')
+            ->select(
+                'anuncios.*',
+                'usuarios.nombre'
+            )->latest()->paginate(10);
         return view('livewire.anuncios.anuncios-index', compact('anuncios'));
     }
-
 }

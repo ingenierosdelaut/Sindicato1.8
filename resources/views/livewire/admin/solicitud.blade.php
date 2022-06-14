@@ -50,24 +50,28 @@
                             Generar reporte</a>
                     </div>
                 </div>
+
                 @if (count((array) $requests))
                     <div class="row">
-                        <div class="col">
+                        <div class="col text-center">
                             <table class="table table-striped">
                                 <thead class="table-dark">
+
                                     <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">NOMBRE</th>
-                                        <th scope="col">ESTADO</th>
-                                        <th scope="col">FECHA EN QUE SE SOLICITO</th>
-                                        <th scope="col">ACCIONES</th>
+                                        <td scope="col">#</td>
+                                        <td scope="col">NOMBRE</td>
+                                        <td scope="col">ESTADO</td>
+                                        <td scope="col">FECHA EN QUE SE SOLICITO</td>
+                                        <td scope="col">ACCIONES</td>
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    @php
+                                        $i = 0;
+                                    @endphp
                                     @foreach ($requests as $request)
                                         <tr>
-                                            <td>{{ $request->id }}</td>
+                                            <td scope="row">{{ ++$i }}</td>
                                             <td>{{ $request->nombre }} {{ $request->apellido }}</td>
                                             @if ($request->estado == null)
                                                 <td><span class="badge badge-pill badge-warning">Pendiente</span></td>

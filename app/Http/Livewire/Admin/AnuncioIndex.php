@@ -18,21 +18,25 @@ class AnuncioIndex extends Component
 
 
     use WithPagination;
-    public $search;
+
+    public $search = '';
     public $cargado = false;
     public Anuncio $anuncio;
     protected $paginationTheme = 'bootstrap';
 
     public function render()
-    {       
+    {
         // $anuncios = ($this->cargado == true) ? Anuncio::where('titulo', 'LIKE', '%' . $this->search . '%')
         //     // ->orWhere('titulo', 'LIKE', '%' . $this->search . '%')
         //     ->paginate(10) : [];
         // $anuncios = Request::where('id_usuario', auth()->user()->id)->paginate(5);
         $anuncios = Anuncio::join('usuarios', 'id_usuario', '=', 'usuarios.id')
+            ->where('titulo', 'LIKE', '%' . $this->search . '%')
+            ->orwhere('contenido', 'LIKE', '%' . $this->search . '%')
             ->select(
-                'usuarios.*',
-            )->latest()->paginate(5);
+                'anuncios.*',
+                'usuarios.nombre'
+            )->latest()->paginate(10);
         return view('livewire.admin.anuncio-index', compact('anuncios'));
     }
 
