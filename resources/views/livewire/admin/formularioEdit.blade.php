@@ -23,22 +23,22 @@
 
         </div> <br>
 
-        <div class="row g-2">
-            <div class="col">
+        <div class="row">
+            <div class="col-6">
                 <input class="relieve" wire:model="usuario.email" placeholder="Ejemplo@hotmail.com" type="text"
                     class="form-control" placeholder="Correo: ejemplo@hotmail.com">
                 @error('usuario.email')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="col">
+            {{-- <div class="col">
                 <select wire:model="usuario.estado" type="button" class="form-control" name="estado"
                     placeholder="Elegir">
                     <i class="fa fa-user-alt-slash"></i>
                     <option value="1">Activo</option>
                     <option value="0">Inactivo</option>
                 </select>
-            </div>
+            </div> --}}
         </div> <br>
 
         <div class="row g-2">

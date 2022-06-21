@@ -1,34 +1,36 @@
 <div>
+
+    <head>
+        <link rel="stylesheet" href="{{ asset('static/css/anuncio-create.css') }}">
+    </head>
     <div class="container cont-anuncio">
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <input wire:model="anuncio.titulo" class="form-control relieve" id="comment"
+                    <input style="color: black;" wire:model="anuncio.titulo" type="text" id="comment"
                         placeholder="Titulo del anuncio" name="text">
                     @error('anuncio.titulo')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                     <br>
-                    <textarea wire:model="anuncio.contenido" class="relieve" placeholder="Especificaciones del anuncio"></textarea> <br>
+                    <textarea style="color: black" wire:model="anuncio.contenido" type="text" placeholder="Especificaciones del anuncio"></textarea> <br>
                     @error('anuncio.contenido')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <div class="row">
-                    <div class="col">
-                        <input wire:model="url_img" type="file" id="imagen" class="form-control" name="file">Subir Imagen <i
-                            class="fa fa-upload" aria-hidden="true"></i>
-                        @error('url_img')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                    <div class="col-2" id="input-file">
+                        <p id="texto"><i class="fa fa-file-image"></i> Subir Imagen</p>
+                        <input wire:model="url_img" type="file" id="imagen"
+                            name="file">
                         @if ($url_img != null)
                             <img class="border-radius: 25px; mx-auto d-block "
                                 style="border-radius: 25px; width: 290px; height: 250px;"
                                 src="{{ $url_img->temporaryUrl() }}" alt="">
                         @endif
                     </div>
-                </div><br>
+                </div>
 
                 <div class="row align-items-center">
                     <div class="col-sm">

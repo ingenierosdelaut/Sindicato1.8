@@ -2,6 +2,7 @@
 
     <head>
         <link rel="stylesheet" href="{{ asset('static/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('static/css/inputs.css') }}">
     </head>
 
     <div class="wrapper d-flex align-items-stretch">
@@ -9,16 +10,17 @@
             <div class="custom-menu"></div>
             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
                 <div class="user-logo">
-                    <img src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150" alt="">
-                    <h3>SUTUTSLRC</h3>
+                    <img src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150"
+                        alt="">
+                    <h3><span style="color:#177c67">SUTUT</span><span style="color:grey">SLRC</span></h3>
                 </div>
             </div>
             <ul class="list-unstyled components mb-5">
                 <li>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa fa-search"></i></span>
-                        <input wire:model="search" type="text" class="form-control" placeholder="Buscar">
-                    </div>
+                    <input wire:model="search" class="form-control search" placeholder="Buscar">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg>
                 </li>
                 <li class="active">
                     <a href="{{ route('admin.view') }}"><span class="fa fa-home mr-3"></span> Home</a>
@@ -61,9 +63,9 @@
 
                 </div>
 
-                <div class="row">
-                    <div class="col text-center">
-                        @if (count((array) $anuncios))
+                @if (count((array) $anuncios))
+                    <div class="row">
+                        <div class="col text-center">
                             <table class="table table-striped">
                                 <thead class="table-dark">
                                     <tr>
@@ -79,18 +81,17 @@
                                         <tr>
                                             <td>{{ $anuncio->titulo }}</td>
                                             <td>{{ $anuncio->contenido }}</td>
-                                            <td>{{ $anuncio->nombre }}</td>
+                                            <td>{{ $anuncio->nombre }} {{ $anuncio->apellido }}</td>
                                             <td>{{ $anuncio->created_at }}</td>
                                             <td>
-                                                <a href="{{ route('admin.anuncio-delete', $anuncio) }}" type="button"
-                                                    title="Eliminar anuncio" class="btn-sm btn-danger"><i
+                                                <a href="{{ route('admin.anuncio-delete', $anuncio) }}"
+                                                    type="button" title="Eliminar anuncio" class="btn-sm btn-danger"><i
                                                         class="fa fa-trash"></i></a>
                                                 <a href="{{ route('admin.anuncio-edit', $anuncio) }}"
                                                     title="Editar anuncio" type="button" class="btn-sm btn-info"><i
                                                         class="fa fa-edit"></i></a>
                                             </td>
                                         </tr>
-
                                     </tbody>
                                 @endforeach
                             </table>
@@ -112,13 +113,13 @@
                                     <th>No hay resultados</th>
                                     <th>No hay resultados</th>
                                 </tbody>
-                        @endif
-                        {{ $cargado == true ? $anuncios->links() : null }}
-                    </div>
-                </div>
+                @endif
+                {{ $cargado == true ? $anuncios->links() : null }}
             </div>
         </div>
     </div>
+</div>
+</div>
 
 
 </div>

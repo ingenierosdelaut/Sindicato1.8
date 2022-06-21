@@ -10,7 +10,8 @@
             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
                 <div class="user-logo">
                     <img src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150" alt="">
-                    <h3>SUTUTSLRC</h3>
+                    <h3><span style="color:#177c67">SUTUT</span><span style="color:grey">SLRC</span></h3>
+
                 </div>
             </div>
             <ul class="list-unstyled components mb-5">
@@ -53,6 +54,12 @@
                     </div>
                     <div class="card-body">
                         @include('livewire.admin.formulario-anuncio')
+                        @if ($url_img)
+                            <img class="mx-auto d-block "
+                                style="width: 290px; height: 250px;"
+                                src="{{ $url_img->temporaryUrl() }}" alt="">
+                        @endif
+
                     </div>
                 </div>
             </form>

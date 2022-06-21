@@ -4,6 +4,9 @@
 
 
 <div class="container text-center">
+    {{-- <img src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150" alt=""> --}}
+    <h1><span style="color:#177c67">SUTUT</span><span style="color:grey">SLRC</span></h1>
+
     <h2>Lista de Anuncios</h2>
 </div>
 
@@ -11,27 +14,22 @@
 <table class="table table-striped">
     <thead class="table-dark" style="text-aling-center">
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">TITULO</th>
-            <th scope="col">ESPECIFICACIONES</th>
-            <th scope="col">PUBLICADO POR</th>
-            <th scope="col">ACCIONES</th>
+            <td scope="col">#</td>
+            <td scope="col">Título</td>
+            <td scope="col">Especificaciones</td>
+            <td scope="col">Publicado Por</td>
+            <td scope='col'>Se Publicó El Día</td>
         </tr>
     </thead>
     @foreach ($anuncios as $anuncio)
         <tbody>
 
             <tr>
-                <th scope="row">{{ $anuncio->id }}</th>
+                <td scope="row">{{ $anuncio->id }}</td>
                 <td>{{ $anuncio->titulo }}</td>
                 <td>{{ $anuncio->contenido }}</td>
-                <td>Nombre usuario</td>
-                <td>
-                    <a href="{{ route('admin.anuncio-delete', $anuncio) }}" type="button" title="Eliminar anuncio"
-                        class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                    <a href="{{ route('admin.anuncio-edit', $anuncio) }}" title="Editar anuncio" type="button"
-                        class="btn-sm btn-info"><i class="fa fa-edit"></i></a>
-                </td>
+                <td>{{ $anuncio->nombre }} {{ $anuncio->apellido }}</td>
+                <td>{{$anuncio->created_at}}</td>
             </tr>
 
         </tbody>

@@ -29,7 +29,7 @@
                 <h2>Nuestra Misión</h2>
             </header>
             <div class="box">
-                <p>Nos constituimos en Sindicato para la defensa de los intereses laborales, académicos, culturales,
+                <p style="color: black;">Nos constituimos en Sindicato para la defensa de los intereses laborales, académicos, culturales,
                     políticos y económicos de sus miembros. En sus filas, pueden militar activamente, en igualdad de
                     circunstancias, en lo que se refiere a derechos y obligaciones, sin importar posturas filosóficas,
                     económicas, ideológicas y religiosas, todas las personas que conforme a los presentes Estatutos,

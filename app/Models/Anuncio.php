@@ -9,9 +9,14 @@ class Anuncio extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'titulo',
+        'contenido',
+        'url_img',
+    ];
+
     public function scopeIdDescending($query)
     {
         return $query->orderBy('created_at', 'DESC');
     }
-
 }

@@ -2,31 +2,34 @@
     <link href="{{ public_path('static/css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 
+<div class="container">
+    {{-- <img src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150" alt=""> --}}
+    <h1><span style="color:#177c67">SUTUT</span><span style="color:grey">SLRC</span></h1>
 
-
-<h2>Lista de usuarios</h2>
+    <h2>Lista de usuarios</h2>
+</div>
 
 <table class="table text-center table-striped">
     <thead class="table-dark">
         <tr>
-            <th scope="col"><b>NOMBRE</b></th>
-            <th scope="col"><b>APELLIDO</b></th>
-            <th scope="col"><b>DEPARTAMENTO</b></th>
-            <th scope="col"><b>PUESTO</b></th>
-            <th scope="col"><b>ESTADO</b></th>
+            <td scope="col"><b>NOMBRE</b></td>
+            <td scope="col"><b>APELLIDO</b></td>
+            <td scope="col"><b>DEPARTAMENTO</b></td>
+            <td scope="col"><b>PUESTO</b></td>
+            <td scope="col"><b>ESTADO</b></td>
         </tr>
     </thead>
     <tbody>
         @foreach ($usuarios as $usuario)
             <tr>
-                <th scope="row">{{ $usuario->nombre }}</th>
-                <th>{{ $usuario->apellido }}</th>
-                <th>{{ $usuario->puesto }}</th>
-                <th>{{ $usuario->departamento }}</th>
+                <td scope="row">{{ $usuario->nombre }}</td>
+                <td>{{ $usuario->apellido }}</td>
+                <td>{{ $usuario->puesto }}</td>
+                <td>{{ $usuario->departamento }}</td>
                 @if ($usuario->estado == 1)
-                    <th><span class="badge badge-pill badge-success">Activo</span></th>
+                    <td><span class="badge badge-pill badge-success">Activo</span></td>
                 @elseif ($usuario->estado == 0)
-                    <th><span class="badge badge-pill badge-danger">Inactivo</span></th>
+                    <td><span class="badge badge-pill badge-danger">Inactivo</span></td>
                 @endif
 
             </tr>

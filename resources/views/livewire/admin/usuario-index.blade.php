@@ -2,6 +2,7 @@
 
     <head>
         <link rel="stylesheet" href="{{ asset('static/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('static/css/inputs.css') }}">
     </head>
 
     <div class="wrapper d-flex align-items-stretch">
@@ -9,15 +10,19 @@
             <div class="custom-menu"></div>
             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
                 <div class="user-logo">
-                    <img src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150" alt="">
-                    <h3>SUTUTSLRC</h3>
+                    <img src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150"
+                        alt="">
+                    <h3><span style="color:#177c67">SUTUT</span><span style="color:grey">SLRC</span></h3>
+
                 </div>
             </div>
             <ul class="list-unstyled components mb-5">
                 <li>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa fa-search"></i></span>
-                        <input wire:model="search" type="text" class="form-control" placeholder="Buscar">
+                    <div class="input-wrapper">
+                        <input wire:model="search" class="form-control search" placeholder="Buscar">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                        </svg>
                     </div>
                 </li>
                 <li class="active">
@@ -66,11 +71,11 @@
                         <table class="table table-striped">
                             <thead class="table-dark ">
                                 <tr>
-                                    <td scope="col"><b>NOMBRE</b></td>
-                                    <td scope="col"><b>DEPARTAMENTO</b></td>
-                                    <td scope="col"><b>PUESTO</b></td>
-                                    <td scope="col"><b>ESTADO</b></td>
-                                    <td scope="col"><b>ACCIONES</b></td>
+                                    <td>NOMBRE</td>
+                                    <td>PUESTO</td>
+                                    <td>DEPARTAMENTO</td>
+                                    <td>ESTADO</td>
+                                    <td>ACCIONES</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -92,6 +97,16 @@
                                             <a type="button" href="{{ route('admin.user-edit', $usuario) }}"
                                                 title="Editar informacion del usuario" class="btn btn-primary btn-sm"><i
                                                     class="fa fa-edit"></i></a>
+                                            @if ($usuario->estado == 1)
+                                                <button wire:click="disable({{ $usuario->id }})" type="button"
+                                                    title="Desactivar usuario" class="btn btn-warning btn-sm"><i
+                                                        class="fa fa-user-slash"></i></button>
+                                            @elseif ($usuario->estado == 0)
+                                                <button wire:click="enable({{ $usuario->id }})" type="button"
+                                                    title="Activar usuario" class="btn btn-success btn-sm"><i
+                                                        class="fa fa-user-slash"></i></button>
+                                            @endif
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -100,9 +115,9 @@
                             {{ $cargado == true ? $usuarios->links() : null }}
                         @elseif (count($usuarios) < 0)
                             <div class="alert alert-primary d-flex align-items-center" role="alert">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                                    class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16"
-                                    role="img" aria-label="Warning:">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                                    viewBox="0 0 16 16" role="img" aria-label="Warning:">
                                     <path
                                         d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                                 </svg>

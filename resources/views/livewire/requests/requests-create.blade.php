@@ -47,14 +47,14 @@
             <div class="div">
                 <h2>Mis solicitudes realizadas</h2>
             </div>
-            <table class="table">
+            <table class="table text-center">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Fecha Solicitada</th>
-                        <th scope="col">Dia en que se solicitó</th>
-                        <th scope="col">Estado</th>
-                        <th>Opciones</th>
+                        <td scope="col">ID</td>
+                        <td scope="col">Fecha Solicitada</td>
+                        <td scope="col">Dia en que se solicitó</td>
+                        <td scope="col">Estado</td>
+                        <td>Opciones</td>
                     </tr>
                 </thead>
                 <tbody>

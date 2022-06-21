@@ -22,6 +22,7 @@ class ReglasUsuario
             'usuario.ine' => 'required|string',
             'usuario.fecha_ingreso' => 'required|date',
             'usuario.fecha_afiliacion' => 'required|date',
+            // 'usuario.estado' => 'integer'
         ];
     }
 }

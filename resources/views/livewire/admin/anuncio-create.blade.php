@@ -10,16 +10,11 @@
             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
                 <div class="user-logo">
                     <img src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150" alt="">
-                    <h3>SUTUTSLRC</h3>
+                    <h3><span style="color:#177c67">SUTUT</span><span style="color:grey">SLRC</span></h3>
+
                 </div>
             </div>
             <ul class="list-unstyled components mb-5">
-                <li>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa fa-search"></i></span>
-                        <input wire:model="search" type="text" class="form-control" placeholder="Buscar">
-                    </div>
-                </li>
                 <li class="active">
                     <a href="{{ route('admin.view') }}"><span class="fa fa-home mr-3"></span> Home</a>
                 </li>
@@ -47,7 +42,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h5>Para crear un nuevo anuncio solo hay que llenar los siguientes campos.</h5>
-                        <p>En caso de no querer subir una imagen simplemente se llenan los campos y se da clic en publicar.</p>
+                        <p style="color: black">En caso de no querer subir una imagen simplemente se llenan los campos y se da clic en publicar.</p>
                     </div>
                     <div class="card-body">
                         @include("livewire.admin.formulario-anuncio")

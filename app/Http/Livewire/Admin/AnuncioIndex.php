@@ -35,14 +35,19 @@ class AnuncioIndex extends Component
             ->orwhere('contenido', 'LIKE', '%' . $this->search . '%')
             ->select(
                 'anuncios.*',
-                'usuarios.nombre'
+                'usuarios.nombre',
+                'usuarios.apellido'
             )->latest()->paginate(10);
         return view('livewire.admin.anuncio-index', compact('anuncios'));
     }
 
     public function generarPDF()
     {
-        $anuncios = Anuncio::all();
+        $anuncios = Anuncio::join('usuarios', 'id_usuario', '=', 'usuarios.id')->select(
+            'anuncios.*',
+            'usuarios.nombre',
+            'usuarios.apellido'
+        )->paginate();
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadView('livewire.admin.pdfAnuncios', ['anuncios' => $anuncios]);
         return $pdf->stream();

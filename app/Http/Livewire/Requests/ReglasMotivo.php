@@ -2,13 +2,11 @@
 
 namespace App\Http\Livewire\Requests;
 
-class RulesRequest
+class ReglasMotivo
 {
     public static function reglas()
     {
         return [
-            'request.fecha' => 'required|date|after:yesterday',
-            'request.id_usuario' => 'required',
             'request.motivo' => 'nullable|string'
         ];
     }

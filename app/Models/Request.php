@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Request extends Model
 {
+    protected $fillable=[
+        'estado',
+        'fecha',
+        'id_usaurio'
+    ];
     use HasFactory;
 
 }

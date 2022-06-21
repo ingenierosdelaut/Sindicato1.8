@@ -19,7 +19,8 @@ class RequestCreate extends Component
 
 
 
-    public function mount(){
+    public function mount()
+    {
         $this->request = new Request();
     }
 
@@ -27,23 +28,21 @@ class RequestCreate extends Component
     {
         $requests = Request::where('id_usuario', auth()->user()->id)->paginate(5);
         $usuarios = Usuario::all();
-        return view('livewire.requests.requests-create', compact('usuarios' ,'requests'));
-
+        return view('livewire.requests.requests-create', compact('usuarios', 'requests'));
     }
 
-    public function crear(){
+    public function crear()
+    {
         $this->request->id_usuario = auth()->user()->id;
         $this->validate();
         $this->request->save();
         $this->emit('alerta-request-create', 'Se realizó la solicitud con exito');
         return redirect(route('requests.create'));
-
     }
 
 
-    protected function rules(){
+    protected function rules()
+    {
         return RulesRequest::reglas();
     }
-
-
 }

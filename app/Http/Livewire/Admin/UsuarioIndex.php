@@ -25,6 +25,7 @@ class UsuarioIndex extends Component
         $usuarios = ($this->cargado == true) ? Usuario::where('nombre', 'LIKE', '%' . $this->search . '%')
             ->orwhere('departamento', 'LIKE', '%' . $this->search . '%')
             ->orwhere('apellido', 'LIKE', '%' . $this->search . '%')
+            ->orwhere('estado', 'LIKE', '%' . $this->search . '%')
             ->paginate(10) : [];
         return view('livewire.admin.usuario-index', compact('usuarios'));
     }
@@ -42,6 +43,17 @@ class UsuarioIndex extends Component
         $this->cargado = true;
     }
 
+    public function disable($id)
+    {
+        $this->emit('alert-user-disabled', 'Este usuario ha sido inhabilitado');
+        Usuario::find($id)->fill(['estado' => 0])->save();
+    }
+
+    public function enable($id)
+    {
+        $this->emit('alert-user-enable', 'Has habilitado correctamente al usuario');
+        Usuario::find($id)->fill(['estado' => 1])->save();
+    }
 
     public function updatingSearch()
     {

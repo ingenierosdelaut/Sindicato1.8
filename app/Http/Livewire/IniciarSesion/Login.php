@@ -26,13 +26,17 @@ class Login extends Component
         // }
 
         if (Auth::attempt($datos)) {
-            if (auth()->user($datos)->is_admin == 1) {
-                return redirect(route('admin.view'));
+            if (auth()->user($datos)->estado == 0) {
+                return $this->emit('alert-user-disabled', 'Usuario desactivado, comuníquese con el administrador del sitio web.');
             } else {
-                return redirect(route('anuncios.index'));
+                if (auth()->user($datos)->is_admin == 1) {
+                    return redirect(route('admin.view'));
+                } else {
+                    return redirect(route('anuncios.index'));
+                }
             }
         } else {
-            $this->emit('alert-login', 'Verifica el correo o la contraseña');
+            $this->emit('alerta', 'Correo y/o contraseña incorrectos.');
         }
     }
 

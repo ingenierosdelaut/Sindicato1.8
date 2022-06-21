@@ -23,6 +23,7 @@ class Usuario extends Model implements AuthenticatableContract
         'email',
         'password',
         'is_admin',
+        'estado'
     ];
 
     /**

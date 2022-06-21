@@ -13,6 +13,11 @@ class AnuncioEdit extends Component
     public Anuncio $anuncio;
     public $url_img;
 
+    public function mount($anuncio)
+    {
+        $this->anuncio = $anuncio;
+    }
+
     public function render()
     {
         return view('livewire.admin.anuncio-edit');

@@ -22,6 +22,10 @@ class UsuarioCreate extends Component
     public $confirm_password;
     public $estado;
     public $is_admin;
+    public $curp;
+    public $rfc;
+    public $ine;
+
 
     public function render()
     {
@@ -35,6 +39,9 @@ class UsuarioCreate extends Component
         $this->usuario->password = Hash::make($this->usuario->password);
         $this->usuario->is_admin = 0;
         $this->usuario->estado = 1;
+        $this->usuario->curp = strtoupper($this->usuario->curp);
+        $this->usuario->rfc = strtoupper($this->usuario->rfc);
+        $this->usuario->ine = strtoupper($this->usuario->ine);
         $this->usuario->save();
         $this->emit('alert-user-create', 'Has registrado a un nuevo usuario correctamente');
         return redirect(route('admin.usuarios'));

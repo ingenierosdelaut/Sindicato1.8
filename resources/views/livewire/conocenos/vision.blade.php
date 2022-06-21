@@ -27,7 +27,7 @@
                 <h2>Nuestra Visión</h2>
             </header>
             <div class="box">
-                <p>Para el año 2030 seremos un sindicato reconocido a nivel internacional, por su liderazgo en la
+                <p style="color: black;">Para el año 2030 seremos un sindicato reconocido a nivel internacional, por su liderazgo en la
                     defensa de los derechos laborales de los trabajadores y por contribuir al progreso científico y
                     social de la humanidad.</p>
                 <div class="row">

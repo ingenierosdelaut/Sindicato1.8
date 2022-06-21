@@ -16,8 +16,9 @@ class CreateRequestsTable extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_usuario');
-            $table->date('fecha');
-            $table->boolean('estado')->nullable();
+            $table->date('fecha')->nullable();
+            $table->integer('estado')->nullable();
+            $table->string('motivo')->nullable();
             $table->timestamps();
 
             $table->foreign('id_usuario')->references('id')->on('usuarios');

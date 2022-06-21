@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Http\Livewire\Requests\ReglasMotivo;
 use App\Http\Livewire\Requests\RulesRequest;
 use App\Models\Request;
 use App\Models\Usuario;
@@ -11,36 +12,48 @@ use Livewire\WithPagination;
 class Solicitud extends Component
 {
     use WithPagination;
-    public Usuario $usuario;
     public Request $request;
     public $estado;
     protected $paginationTheme = 'bootstrap';
     public $cargado = false;
     public $search = '';
 
+    public function mount()
+    {
+        $this->request = new Request();
+    }
     public function render()
     {
         $requests = Request::join('usuarios', 'id_usuario', '=', 'usuarios.id')
-        ->where('nombre', 'LIKE', '%' . $this->search . '%')
-        ->orwhere('fecha', 'LIKE', '%' . $this->search . '%')
+            ->where('nombre', 'LIKE', 'F%' . $this->search . '%')
+            ->orwhere('fecha', 'LIKE', '%' . $this->search . '%')
             ->select(
                 'requests.*',
                 'usuarios.nombre',
                 'usuarios.apellido'
-            )->latest()->paginate(10);
+            )
+            ->orderby('id', 'asc')
+            ->paginate(10);
         return view('livewire.admin.solicitud', compact('requests'));
     }
 
-    public function aceptar()
+    public function aceptar($id)
     {
-        $this->request->estado = 1;
-        $this->request->save();
+        Request::find($id)->fill(['estado' => 1])->save();
     }
 
-    public function denegar()
+    // public function denegar($id)
+    // {
+    //     Request::find($id)->fill(['estado' => 2])->save();
+    // }
+
+    public function motivo($id)
     {
-        $this->request->estado = 0;
-        $this->request->save();
+        $this->request->id_usuario = auth()->user()->id;
+        if ($this->validate())
+            Request::find($id)->fill(['estado' => 2]);
+            $this->request->save();
+
     }
 
     public function cargando()
@@ -53,4 +66,8 @@ class Solicitud extends Component
         $this->resetPage();
     }
 
+    protected function rules()
+    {
+        return ReglasMotivo::reglas();
+    }
 }

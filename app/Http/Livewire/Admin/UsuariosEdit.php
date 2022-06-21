@@ -13,9 +13,11 @@ class UsuariosEdit extends Component
 
     use WithFileUploads;
     public Usuario $usuario;
-    public $foto;
     public $confirm_password;
     public $password;
+    public $rfc;
+    public $curp;
+    public $ine;
 
     public function render()
     {
@@ -30,6 +32,9 @@ class UsuariosEdit extends Component
         if ($this->password) {
             $this->usuario->password = Hash::make($this->password);
         }
+        $this->usuario->curp = strtoupper($this->usuario->curp);
+        $this->usuario->rfc = strtoupper($this->usuario->rfc);
+        $this->usuario->ine = strtoupper($this->usuario->ine);
         $this->usuario->save();
         $this->emit('alert-user-edit', 'Se ha modificado correctamente al usuario');
     }
