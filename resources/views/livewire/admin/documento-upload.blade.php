@@ -1,5 +1,4 @@
 <div>
-
     <head>
         <link rel="stylesheet" href="{{ asset('static/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('static/css/inputs.css') }}">
@@ -17,6 +16,7 @@
                 </div>
             </div>
             <ul class="list-unstyled components mb-5">
+
                 <li class="active">
                     <a href="{{ route('admin.view') }}"><span class="fa fa-home mr-3"></span> Home</a>
                 </li>
@@ -30,10 +30,11 @@
                     <a href="{{ route('admin.solicitudes') }}"><span class="fa fa-tags mr-3"></span> Solicitudes</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.documento-create') }}"><span class="fa fa-file mr-3"></span> Documentos</a>
+                    <a href="{{ route('admin.documento-create') }}"><span class="fa fa-file mr-3"></span>
+                        Documentos</a>
                 </li>
                 <li>
-                    <div style="margin-top: 170px;">
+                    <div style="margin-top: 145px;">
                         @livewire('iniciar-sesion.logout')
                     </div>
                 </li>
@@ -41,32 +42,37 @@
 
         </nav>
 
-        <!-- Page Content  -->
-        <div id="content" class="p-4 p-md-5 pt-5">
-            <form wire:submit.prevent="crearUser">
-                <div class="container cont-user">
-                    <div class="card">
-                        <div class="card-header">
-                            <h2>Formulario de registro</h2>
-                            <p style="color: black">Para registrar un nuevo usuario se deben llenar todos los campos que
-                                se muestran debajo.
-                            </p>
+        <body>
+            <div class="container mt-5">
+                <form action="{{ route('fileUpload') }}" method="post" enctype="multipart/form-data">
+                    <h3 class="text-center mb-5">Subir Documentos</h3>
+                    @csrf
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <strong>{{ $message }}</strong>
                         </div>
-                        <div class="card-body">
-                            @include('livewire.admin.formulario')
+                    @endif
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
-                        <br>
-                        <div class="card-footer">
-                            <button class="float-right btn btn-success"><i class="fa fa-save"></i> Guardar</button>
-                            <a href="{{ route('admin.usuarios') }}" class="btn btn-secondary"><i
-                                    class="fa fa-home"></i>
-                                Regresar</a>
-                        </div>
+                    @endif
+
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Selecciona el documeto a subir</label>
+                        <input name="file" class="form-control" type="file" id="formFile">
                     </div>
 
-                </div>
-            </form>
-        </div>
-    </div>
+                    <button type="submit" name="submit" class="btn btn-primary btn-block mt-4 text-center">
+                        Subir Documento
+                    </button>
+                </form>
+            </div>
+        </body>
 
+    </div>
 </div>

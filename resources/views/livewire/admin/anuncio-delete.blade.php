@@ -15,12 +15,6 @@
                 </div>
             </div>
             <ul class="list-unstyled components mb-5">
-                <li>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa fa-search"></i></span>
-                        <input wire:model="search" type="text" class="form-control" placeholder="Buscar">
-                    </div>
-                </li>
                 <li class="active">
                     <a href="{{ route('admin.view') }}"><span class="fa fa-home mr-3"></span> Home</a>
                 </li>
@@ -32,6 +26,9 @@
                 </li>
                 <li>
                     <a href="{{ route('admin.solicitudes') }}"><span class="fa fa-tags mr-3"></span> Solicitudes</a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.documento-create') }}"><span class="fa fa-file mr-3"></span> Documentos</a>
                 </li>
                 <li>
                     <div style="margin-top: 170px;">

@@ -24,9 +24,11 @@
                         <p id="texto"><i class="fa fa-file-image"></i> Subir Imagen</p>
                         <input wire:model="url_img" type="file" id="imagen"
                             name="file">
+                    </div>
+                    <div>
                         @if ($url_img != null)
-                            <img class="border-radius: 25px; mx-auto d-block "
-                                style="border-radius: 25px; width: 290px; height: 250px;"
+                            <img class="mx-auto d-block "
+                                style="border-radius: 15px; width: 290px; height: 250px;"
                                 src="{{ $url_img->temporaryUrl() }}" alt="">
                         @endif
                     </div>

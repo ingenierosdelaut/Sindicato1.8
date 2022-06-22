@@ -65,3 +65,9 @@ input#imagen {
     height: 100%;
     opacity: 0;
 }
+
+.request {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    left: 300px;
+}

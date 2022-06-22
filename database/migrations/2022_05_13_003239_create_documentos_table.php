@@ -15,10 +15,8 @@ class CreateDocumentosTable extends Migration
     {
         Schema::create('documentos', function (Blueprint $table) {
             $table->id();
-            $table->integer('usuario_id');
             $table->string('url_doc');
             $table->string('titulo');
-            $table->boolean('web');
             $table->timestamps();
         });
     }

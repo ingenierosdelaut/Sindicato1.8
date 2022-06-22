@@ -8,7 +8,7 @@
                 <ul>
                     <li><a href="{{ route('index') }}">Inicio</a></li>
                     <li>
-                        <a href="#" class="icon solid fa-angle-down">Conocenos</a>
+                        <a href="#" class="icon solid fa-angle-down">Conócenos</a>
                         <ul>
                             <li><a href="{{ route('conocenos.mision') }}">Misión</a></li>
                             <li><a href="{{ route('conocenos.vision') }}">Visión</a></li>

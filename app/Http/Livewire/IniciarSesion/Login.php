@@ -36,7 +36,7 @@ class Login extends Component
                 }
             }
         } else {
-            $this->emit('alerta', 'Correo y/o contraseña incorrectos.');
+            $this->emit('alert-login', 'Correo y/o contraseña incorrectos.');
         }
     }
 
