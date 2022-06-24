@@ -49,11 +49,10 @@ class Solicitud extends Component
 
     public function motivo($id)
     {
-        $this->request->id_usuario = auth()->user()->id;
-        if ($this->validate())
-            Request::find($id)->fill(['estado' => 2]);
-            $this->request->save();
-
+        $this->validate();
+        Request::find($id)->fill(['estado' => 2]);
+        $this->emit('alert-request-denied', 'Se ha enviando el motivo por el cual se denego solicitud');
+        $this->request->save();
     }
 
     public function cargando()

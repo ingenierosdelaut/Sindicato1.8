@@ -3,17 +3,20 @@
     <head>
         <link rel="stylesheet" href="{{ asset('static/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('static/css/inputs.css') }}">
+
     </head>
 
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
-            <div class="custom-menu"></div>
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary"><i class="fa fa-arrow"></i>
+                </button>
+            </div>
             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
                 <div class="user-logo">
                     <img src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150"
                         alt="">
                     <h3><span style="color:#177c67">SUTUT</span><span style="color:grey">SLRC</span></h3>
-
                 </div>
             </div>
             <ul class="list-unstyled components mb-5">
@@ -30,7 +33,8 @@
                     <a href="{{ route('admin.solicitudes') }}"><span class="fa fa-tags mr-3"></span> Solicitudes</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.documento-create') }}"><span class="fa fa-file mr-3"></span> Documentos</a>
+                    <a href="{{ route('admin.documento-create') }}"><span class="fa fa-file mr-3"></span>
+                        Documentos</a>
                 </li>
                 <li>
                     <div style="margin-top: 170px;">

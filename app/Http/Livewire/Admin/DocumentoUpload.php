@@ -21,9 +21,9 @@ class DocumentoUpload extends Component
         $fileModel = new Documento();
         if ($req->file()) {
             $fileName = $req->file->getClientOriginalName();
-            $filePath = $req->file('file')->storeAs('documentos', $fileName, 'public');
+            $filePath = $req->file('file')->storeAs('/documentos', $fileName, 'public');
             $fileModel->titulo = $req->file->getClientOriginalName();
-            $fileModel->url_doc = '/storage/' . $filePath;
+            $fileModel->url_doc = $filePath;
             $fileModel->save();
             return back()
                 ->with('success', 'El documento ha sido guardado.')

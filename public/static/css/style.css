@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
-    --blue: #177c67;
+    --blue: #007bff;
     --indigo: #6610f2;
     --purple: #6f42c1;
     --pink: #e83e8c;
@@ -18,7 +18,7 @@
     --white: #fff;
     --gray: #6c757d;
     --gray-dark: #343a40;
-    --primary: #177c67;
+    --primary: #007bff;
     --secondary: #6c757d;
     --success: #28a745;
     --info: #17a2b8;
@@ -2916,13 +2916,13 @@ fieldset:disabled a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #007bff;
+    background-color: #0c8461;
     border-color: #007bff;
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #0069d9;
+    background-color: #0c8461;
     border-color: #0062cc;
 }
 
@@ -2943,7 +2943,7 @@ fieldset:disabled a.btn {
 .btn-primary:not(:disabled):not(.disabled).active,
 .show>.btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #177c67;
+    background-color: #0062cc;
     border-color: #005cbf;
 }
 
@@ -3063,7 +3063,7 @@ fieldset:disabled a.btn {
 .btn-info:not(:disabled):not(.disabled).active,
 .show>.btn-info.dropdown-toggle {
     color: #fff;
-    background-color: #177c67;
+    background-color: #117a8b;
     border-color: #10707f;
 }
 
@@ -11911,7 +11911,7 @@ h5,
 }
 
 #sidebar .custom-menu .btn.btn-primary {
-    background: #2f89fc;
+    background: #0c8461;
     border-color: transparent;
     position: relative;
     color: #000;
@@ -11932,7 +11932,7 @@ h5,
 
 #sidebar .custom-menu .btn.btn-primary:after {
     content: "\f054";
-    left: 2px;
+
 }
 
 .bg-wrap {
@@ -11982,7 +11982,7 @@ a[data-toggle="collapse"] {
 
 @media (max-width: 991.98px) {
     #sidebarCollapse span {
-        display: none;
+        display: block;
     }
 }
 

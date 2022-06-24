@@ -6,7 +6,10 @@
 
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
-            <div class="custom-menu"></div>
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" style="color: #0c8461" class="btn btn-primary"><i class="fa fa-arrow"></i>
+                </button>
+            </div>
             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
                 <div class="user-logo">
                     <img src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150"

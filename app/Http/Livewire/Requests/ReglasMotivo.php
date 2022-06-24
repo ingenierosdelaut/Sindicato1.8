@@ -7,7 +7,7 @@ class ReglasMotivo
     public static function reglas()
     {
         return [
-            'request.motivo' => 'nullable|string'
+            'request.motivo' => 'required|string'
         ];
     }
 }

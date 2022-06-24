@@ -123,16 +123,18 @@
             </div>
 
             <div class="col">
-                <input style="color: black" wire:model="usuario.fecha_ingreso" type="date" class="relieve-options"
-                    placeholder=" Fecha de Ingreso Ejemplo: 05/05/2020">
+                <input style="color: black" wire:model="usuario.fecha_ingreso" type="date" class="textbox-n"
+                    onblur="(this.type='text')" onfocus="(this.type='date')"
+                    placeholder=" Fecha de Ingreso Ejemplo: 05/05/2020" id="date">
                 @error('usuario.fecha_ingreso')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
 
             <div class="col">
-                <input style="color: black" wire:model="usuario.fecha_afiliacion" type="date" class="relieve-options"
-                    placeholder=" Fecha de Afiliación, Ejemplo: 20/05/2020">
+                <input style="color: black" wire:model="usuario.fecha_afiliacion" type="date"
+                    placeholder="Fecha de Afiliación, Ejemplo: 20/05/2020" class="textbox-n"
+                    onfocus="(this.type='date')" onblur="(this.type='text')">
                 @error('usuario.fecha_afiliacion')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror

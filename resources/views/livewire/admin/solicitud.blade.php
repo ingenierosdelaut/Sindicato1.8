@@ -8,7 +8,10 @@
 
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
-            <div class="custom-menu"></div>
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" style="color: #0c8461" class="btn btn-primary">
+                </button>
+            </div>
             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
                 <div class="user-logo">
                     <img src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150"
@@ -21,7 +24,9 @@
                 <li>
                     <input wire:model="search" class="form-control search" placeholder="Buscar">
                     <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd"
+                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                            clip-rule="evenodd" />
                     </svg>
                 </li>
                 <li class="active">
@@ -37,7 +42,8 @@
                     <a href="{{ route('admin.solicitudes') }}"><span class="fa fa-tags mr-3"></span> Solicitudes</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.documento-create') }}"><span class="fa fa-file mr-3"></span> Documentos</a>
+                    <a href="{{ route('admin.documento-create') }}"><span class="fa fa-file mr-3"></span>
+                        Documentos</a>
                 </li>
                 <li>
                     <div style="margin-top: 115px;">
@@ -125,11 +131,11 @@
             </div>
         </div>
     </div>
-    <div class="modal" data-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div wire:ignore.self class="modal" data-backdrop="static" id="exampleModal" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog UpdatePanel">
             <div class="modal-content">
-                <form wire:submit.prevent="motivo">
+                <form wire:submit="motivo">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Escribir el motivo por el cual se denego
                             la solicitud</h5>
@@ -140,7 +146,8 @@
                         <form>
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Especificaciones:</label>
-                                <input wire:model="request.motivo" type="text" class="form-control">
+                                <input style="color: white" wire:model="request.motivo"
+                                    placeholder="Especificaciones exactas" type="text" class="form-control">
                                 @error('request.motivo')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -148,7 +155,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button wire:click="motivo({{ $request->id }})" type="button"
+                        <button wire:click="motivo({{ $request->id, $request->id_usuario }})" type="button"
                             class="btn btn-success">Enviar</button>
                     </div>
                 </form>
