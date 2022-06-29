@@ -17,8 +17,6 @@ class RequestCreate extends Component
     public Usuario $usuario;
     protected $paginationTheme = 'bootstrap';
 
-
-
     public function mount()
     {
         $this->request = new Request();
@@ -33,7 +31,6 @@ class RequestCreate extends Component
 
     public function crear()
     {
-        $this->request->id_usuario = auth()->user()->id;
         $this->validate();
         $this->request->save();
         $this->emit('alerta-request-create', 'Se realizó la solicitud con exito');

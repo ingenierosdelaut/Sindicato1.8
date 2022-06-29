@@ -33,11 +33,11 @@
                     <a href="{{ route('admin.solicitudes') }}"><span class="fa fa-tags mr-3"></span> Solicitudes</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.documento-create') }}"><span class="fa fa-file mr-3"></span>
+                    <a href="{{ route('admin.documentos-index') }}"><span class="fa fa-file mr-3"></span>
                         Documentos</a>
                 </li>
                 <li>
-                    <div style="margin-top: 170px;">
+                    <div>
                         @livewire('iniciar-sesion.logout')
                     </div>
                 </li>

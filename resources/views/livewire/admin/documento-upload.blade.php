@@ -1,13 +1,15 @@
 <div>
+
     <head>
         <link rel="stylesheet" href="{{ asset('static/css/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('static/css/inputs.css') }}">
+        <link rel="stylesheet" href="{{ asset('static/css/anuncio-create.css') }}">
     </head>
 
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
             <div class="custom-menu">
-                <button type="button" id="sidebarCollapse" style="color: #0c8461" class="btn btn-primary"><i class="fa fa-arrow"></i>
+                <button type="button" id="sidebarCollapse" style="color: #0c8461" class="btn btn-primary"><i
+                        class="fa fa-arrow"></i>
                 </button>
             </div>
             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
@@ -33,20 +35,20 @@
                     <a href="{{ route('admin.solicitudes') }}"><span class="fa fa-tags mr-3"></span> Solicitudes</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.documento-create') }}"><span class="fa fa-file mr-3"></span>
+                    <a href="{{ route('admin.documentos-index') }}"><span class="fa fa-file mr-3"></span>
                         Documentos</a>
                 </li>
                 <li>
-                    <div style="margin-top: 145px;">
+                    <div>
                         @livewire('iniciar-sesion.logout')
                     </div>
                 </li>
             </ul>
-
         </nav>
 
-        <body>
-            <div class="container mt-5">
+
+        <div class="container mt-5">
+            <div>
                 <form action="{{ route('fileUpload') }}" method="post" enctype="multipart/form-data">
                     <h3 class="text-center mb-5">Subir Documentos</h3>
                     @csrf
@@ -65,17 +67,24 @@
                         </div>
                     @endif
 
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Selecciona el documeto a subir</label>
-                        <input name="file" class="form-control" type="file" id="formFile">
+                    <div class="row">
+                        <div class="col-2 mb-3" id="input-file">
+                            <p id="texto"><i class="fa fa-file-image"></i> Seleccionar archivo</p>
+                            <input type="file" type="file" id="imagen" name="file">
+                        </div>
                     </div>
 
-                    <button type="submit" name="submit" class="btn btn-primary btn-block mt-4 text-center">
-                        Subir Documento
-                    </button>
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="submit" name="submit" class="btn  btn-primary">
+                                Subir Documento
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
-        </body>
+        </div>
 
     </div>
+
 </div>

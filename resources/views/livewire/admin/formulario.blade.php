@@ -58,7 +58,9 @@
                     <option value="Tecnologias de la Información">Tecnologias de la infomación</option>
                     <option value="Operaciones Comerciales">Operaciones comerciales internacionales</option>
                     <option value="Mecatrónica">Mecatrónica</option>
-                    <option value="Desarrollo de negocios">Desarrollo de negocios</option>
+                    <option value="Desarrollo de negocios">Desarrollo de Negocios</option>
+                    <option value="Procesos Alimentarios">Procesos Alimentarios</option>
+                    <option value="Mantenimiento Industrial">Mantenimiento Industrial</option>
                 </select>
                 @error('usuario.departamento')
                     <span class="text-danger">{{ $message }}</span>
@@ -116,7 +118,7 @@
         <div class="row g-3">
             <div class="col">
                 <input wire:model="usuario.ine" type="text" style="color: black; text-transform:uppercase;"
-                    placeholder="Clave de Lector">
+                    placeholder="Clave de Elector">
                 @error('usuario.ine')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror

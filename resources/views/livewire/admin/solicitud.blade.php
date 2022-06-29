@@ -1,8 +1,6 @@
 <div wire:init="cargando">
 
     <head>
-        <link rel="stylesheet" href="{{ asset('static/css/style.css') }}">
-
         <link rel="stylesheet" href="{{ asset('static/css/inputs.css') }}">
     </head>
 
@@ -42,11 +40,11 @@
                     <a href="{{ route('admin.solicitudes') }}"><span class="fa fa-tags mr-3"></span> Solicitudes</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.documento-create') }}"><span class="fa fa-file mr-3"></span>
+                    <a href="{{ route('admin.documentos-index') }}"><span class="fa fa-file mr-3"></span>
                         Documentos</a>
                 </li>
                 <li>
-                    <div style="margin-top: 115px;">
+                    <div>
                         @livewire('iniciar-sesion.logout')
                     </div>
                 </li>
@@ -137,17 +135,21 @@
             <div class="modal-content">
                 <form wire:submit="motivo">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Escribir el motivo por el cual se denego
+                        <h5 class="modal-title text-center" id="exampleModalLabel">Escribir el motivo por el cual se denego
                             la solicitud</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close">&times;</button>
                     </div>
                     <div class="modal-body">
+                        <h3>Solicitante:</h3>
+                        <p style="color: black"><b>{{ $request->nombre }} {{ $request->apellido }}</b> para el dia
+                            <b>{{ $request->fecha }}</b>
+                        </p>
                         <form>
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Especificaciones:</label>
+                                <label style="color: black" for="recipient-name" class="col-form-label">Especificaciones:</label>
                                 <input style="color: white" wire:model="request.motivo"
-                                    placeholder="Especificaciones exactas" type="text" class="form-control">
+                                    placeholder="Ejemplo: De denego porque..." type="text" class="form-control">
                                 @error('request.motivo')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -155,7 +157,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button wire:click="motivo({{ $request->id, $request->id_usuario }})" type="button"
+                        <button wire:click="motivo({{ $request->id }})" type="button"
                             class="btn btn-success">Enviar</button>
                     </div>
                 </form>

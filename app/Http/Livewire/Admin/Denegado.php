@@ -8,11 +8,11 @@ use Livewire\Component;
 class Denegado extends Component
 {
     public $estado;
+    public $cargado = false;
     public function render()
     {
-        $usuarios = ($this->cargado == true) ? Usuario::where('nombre', 'LIKE', '%' . $this->search . '%')
-            ->paginate(10) : [];
-        return view('livewire.admin.denegado', $usuarios);
+
+        return view('livewire.admin.denegado');
     }
 
     public function crear($id)

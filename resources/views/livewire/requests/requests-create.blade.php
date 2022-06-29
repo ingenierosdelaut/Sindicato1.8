@@ -1,9 +1,5 @@
 <div>
 
-    <head>
-        <link rel="stylesheet" href="{{ asset('static/css/anuncio-create.css') }}">
-    </head>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{{ route('anuncios.index') }}">
             <img src="{{ asset('static/images/sututslrc.png') }}" width="50" height="50" alt="logo">
@@ -27,11 +23,11 @@
 
     <div class="container">
         <form wire:submit.prevent="crear">
-            <div class="card request w-50">
+            <div class="card request mx-auto w-50 mt-3">
                 <h5 class="card-header text-center">
                     Solicitud Día Económico
                 </h5>
-                <div class="card-body col-6      mx-auto ">
+                <div class="card-body col-6 mx-auto">
                     @include('livewire.requests.formulario')
                 </div>
                 <div class="card-footer text-center">
@@ -44,7 +40,7 @@
 
     <div class="container">
         @if (count((array) $requests))
-            <div class="div">
+            <div>
                 <h2>Mis solicitudes realizadas</h2>
             </div>
             <table class="table text-center">

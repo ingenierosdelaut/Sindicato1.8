@@ -5,7 +5,9 @@ use App\Http\Livewire\Admin\AnuncioCreate;
 use App\Http\Livewire\Admin\AnuncioDelete;
 use App\Http\Livewire\Admin\AnuncioEdit;
 use App\Http\Livewire\Admin\AnuncioIndex;
+use App\Http\Livewire\Admin\Denegado;
 use App\Http\Livewire\Admin\DocumentoUpload;
+use App\Http\Livewire\Admin\IndexDocumento;
 use App\Http\Livewire\Admin\Solicitud;
 use App\Http\Livewire\Admin\UsuarioCreate;
 use App\Http\Livewire\Admin\UsuarioIndex;
@@ -15,6 +17,7 @@ use App\Http\Livewire\Anuncios\AnunciosIndex;
 use App\Http\Livewire\Conocenos\Mision;
 use App\Http\Livewire\Conocenos\Valores;
 use App\Http\Livewire\Conocenos\Vision;
+use App\Http\Livewire\CreateAdmin;
 use App\Http\Livewire\Documentos\DocumentosIndex;
 use App\Http\Livewire\Index;
 use App\Http\Livewire\IniciarSesion\Login;
@@ -47,6 +50,8 @@ Route::get('/valores', Valores::class)->name('conocenos.valores');
 //Inicio de sesion
 Route::get('/login', Login::class)->name('login');
 
+Route::get('/admin/crear-nuevos-admin', CreateAdmin::class)->name('crear.admin');
+
 Route::group(['middleware' => 'auth'], function () {
     //Admin
     Route::get('/admin', AdminView::class)->name('admin.view')->middleware('auth.admin');
@@ -67,6 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
     //Admin documentos
     Route::get('/admin/documentos-upload', DocumentoUpload::class)->name('admin.documento-create')->middleware('auth.admin');
     Route::post('/admin/documentos-upload', [DocumentoUpload::class, 'fileUpload'])->name('fileUpload')->middleware('auth.admin');
+    Route::get('/admin/documentos/index', IndexDocumento::class)->name('admin.documentos-index')->middleware('auth.admin') ;
 
     //Admin Solicitudes
     Route::get('/admin/solicitudes', Solicitud::class)->name('admin.solicitudes')->middleware('auth.admin');
@@ -81,4 +87,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Documentos Usuarios
     Route::get('/usuario/documentos', DocumentosIndex::class)->name('documentos.index');
+
 });

@@ -29,8 +29,10 @@
                     <div class="card text-dark bg-light mb-3" style="max-width: 25rem; height: 10rem;">
                         <div class="card-body text-center" style="margin-top: 25px;">
                             <h5 class="card-title">{{ $documento->titulo }}</h5>
-                            <button wire:click="descarga({{$documento->id}})" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-download">Descargar</i></button>
-                            <button wire:click="vista({{$documento->id}})" type="button" class="btn btn-info"><i class="glyphicon glyphicon-download">Vista previa</i></button>
+                            <button wire:click="descarga({{ $documento->id }})" type="button"
+                                class="btn btn-primary"><i class="glyphicon glyphicon-download">Descargar</i></button>
+                            <button wire:click="vista({{ $documento->id }})" type="button" class="btn btn-info"><i
+                                    class="glyphicon glyphicon-download">Vista previa</i></button>
 
                         </div>
                     </div>
@@ -39,3 +41,4 @@
         </div>
 
     </div>
+</div>

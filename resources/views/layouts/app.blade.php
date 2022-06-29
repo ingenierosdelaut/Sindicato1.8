@@ -8,9 +8,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
-
     <link rel="icon" href="{{ asset('static/images/sututslrc.png') }}">
-    <link rel="stylesheet" href="{{asset('static/css/main.css')}}">
+    <link rel="stylesheet" href="{{ asset('static/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('static/css/style.css') }}">
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -165,6 +165,24 @@
         })
 
         livewire.on('alert-request-denied', mensaje => {
+            Swal.fire({
+                icon: 'success',
+                position: 'center',
+                title: mensaje,
+                showConfirmButton: true
+            })
+        })
+
+        livewire.on('alert-user-admin-create', mensaje => {
+            Swal.fire({
+                icon: 'success',
+                position: 'center',
+                title: mensaje,
+                showConfirmButton: true
+            })
+        })
+
+        livewire.on('alert-documento-delete', mensaje => {
             Swal.fire({
                 icon: 'success',
                 position: 'center',

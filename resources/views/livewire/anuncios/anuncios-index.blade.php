@@ -45,8 +45,8 @@
                                         <div class="container">
                                             <p>{{ $anuncio->contenido }}</p>
                                             @if ($anuncio->url_img)
-                                                <img src="{{ Storage::disk('public')->url($anuncio->url_img) }}"
-                                                    style="width: 200px; height: 150px;"><br>
+                                                <img class="img-fluid rounded" src="{{ Storage::disk('public')->url($anuncio->url_img) }}"
+                                                    width="350" height="350"><br>
                                             @endif
                                         </div>
                                     </div>

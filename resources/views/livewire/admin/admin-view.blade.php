@@ -14,9 +14,8 @@
             </div>
             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
                 <div class="user-logo">
-                    <img src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150" alt="">
+                    <img class="img-fluid" src="{{ asset('static/images/sututslrc.png') }}" width="150" height="150" alt="">
                     <h3><span style="color:#177c67">SUTUT</span><span style="color:grey">SLRC</span></h3>
-
                 </div>
             </div>
             <ul class="list-unstyled components mb-5">
@@ -33,10 +32,10 @@
                     <a href="{{ route('admin.solicitudes') }}"><span class="fa fa-tags mr-3"></span> Solicitudes</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.documento-create') }}"><span class="fa fa-file mr-3"></span> Documentos</a>
+                    <a href="{{ route('admin.documentos-index') }}"><span class="fa fa-file mr-3"></span> Documentos</a>
                 </li>
                 <li>
-                    <div style="margin-top: 170px;">
+                    <div>
                         @livewire('iniciar-sesion.logout')
                     </div>
                 </li>
@@ -73,8 +72,8 @@
                                             <div class="container">
                                                 <p>{{ $anuncio->contenido }}</p>
                                                 @if ($anuncio->url_img)
-                                                    <img src="{{ Storage::disk('public')->url($anuncio->url_img) }}"
-                                                        style="width: 200px; height: 150px;"><br>
+                                                    <img class="img-fluid rounded" src="{{ Storage::disk('public')->url($anuncio->url_img) }}"
+                                                        width="350" height="350"><br>
                                                 @endif
 
                                             </div>
